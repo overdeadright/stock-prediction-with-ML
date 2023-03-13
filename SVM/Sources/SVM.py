@@ -158,12 +158,13 @@ def process_data(size, file):
             X_test = lda.transform(X_test)
 
             # define the parameter grid for grid search
-            param_grid = {'C': [0.1, 1, 10], 'gamma': [1, 0.1, 0.01, 0.001], 'kernel': ['rbf', 'poly', 'sigmoid']}
+            param_grid = {'C': [0.1, 1, 10], 'gamma': [1, 0.1, 0.01], 'kernel': ['rbf', 'poly', 'sigmoid']}
+            
 
             # perform grid search to find the best hyperparameters
-            grid_search = GridSearchCV(SVC(), param_grid, refit = True, verbose = 3)
+            grid_search = GridSearchCV(SVC(), param_grid, refit = True, verbose = 0)
             grid_search.fit(X_train, y_train)
-
+            
             # train the SVM classifier with the best hyperparameters
             classifier = grid_search.best_estimator_
             classifier.fit(X_train, y_train)
@@ -230,7 +231,7 @@ def generate_results(file):
     snaps.to_csv(f'{stock_name}_snapshots.csv', index=False)
 
     # move all generated files to a folder
-    save_to_folder(f'{stock_name}_results')
+    save_to_folder(f'results_{stock_name}')
 
 def run(file):
     add_technical_indicators(file)
