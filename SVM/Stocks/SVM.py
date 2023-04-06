@@ -217,12 +217,11 @@ def run_single_file(file):
     
     sizes = range(21, 121, 1)
     
-    h='''
     for size in sizes:
         SVM(f"preprocessed_{file}", size)
     
     sys.exit()
-    '''
+
 
     # create a list to store the futures of the concurrent tasks
     futures = []
@@ -241,9 +240,7 @@ def run_single_file(file):
 
 if __name__ == '__main__':    
     multiprocessing.freeze_support()
-    files = ["AAPL.csv", "AMZN.csv", "GOOGL.csv", 
-             "JNJ.csv", "KO.csv", "META.csv", 
-             "MSFT.csv", "PG.csv", "V.csv", "WMT.csv"]
+    files = ["GME.csv"]
 
     # Run the code
     run_concurrent(files)
