@@ -1,2 +1,3 @@
 # stock-prediction-with-ML
-Dissertation is under the file ["project.png"] 
+Dissertation:
+[PROJECT.pdf](https://github.com/overdeadright/stock-prediction-with-ML/files/13467019/PROJECT.pdf)
